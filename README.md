@@ -30,7 +30,14 @@ Tradionally in javascript we call functions dynamically using window object as b
   
   ```typescript
     const factory = this.resolver.resolveComponentFactory(componentsConfigMap.compIdentifier1);
-    factory.componentType.prototype['action']("arg1", "arg2");
+    factory.componentType.prototype['action']("arg1", "arg2");                             <------------ invoking action(arg1, arg2)
   ```
   
+  ## Problem Statement inspired to dig above solution-
+  Lets say we have a requirement to develop custom angular libraries and resuse them in our runnable applications and where we have a requirement to invoke a method resided in runnable application from one of the custom library, but which leads circular dependency and a useless mess. so instead of circular dependency we will [Pass Data to Library using forRoot](https://medium.com/@michelestieven/angular-writing-configurable-modules-69e6ea23ea42) as below 
   
+  ```
+    libModule.forRoot(componentsConfigMap)
+  ```
+  
+  where runnable application `componentsConfigMap` config is passed to library module and used to create instance and invoke methods with parameters dynamically.
