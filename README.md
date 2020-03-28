@@ -30,7 +30,7 @@ Tradionally in javascript we call functions dynamically using window object as b
   
   ```typescript
     const factory = this.resolver.resolveComponentFactory(componentsConfigMap.compIdentifier1);
-    factory.componentType.prototype['action']("arg1", "arg2");                             <------------ invoking action(arg1, arg2)
+    factory.componentType.prototype['action']("arg1", "arg2");    <------------ invoking action(arg1, arg2)
   ```
   
   ## Problem Statement inspired to dig above solution-
